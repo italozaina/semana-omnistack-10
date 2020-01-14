@@ -6,12 +6,12 @@ const app = express();
 
 // TIpos de parâmetros:
 
-// Query Params: req.query (Filtros, ordenação, paginação ...)
-// Route Params:
+// Query Params: request.query (Filtros, ordenação, paginação ...) ?search=Diego
+// Route Params: request.params ex.: (Identificar um recurso na alteração ou remoção) http://localhost:3333/users/1    <- parametro direto na rota
 // Body
 
-app.get('/users', (request, response) => {
-    console.log(request.query)
+app.delete('/users/:id', (request, response) => {
+    console.log(request.params)
     return response.json({message: 'Hello World'});
 });
 
